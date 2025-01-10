@@ -1,8 +1,8 @@
 export default function MainNavigation() {
   return (
-    <header>
+    <header className="mb-4 bg-dark-blue">
       <nav>
-        <ul>
+        <ul className="mx-4 flex gap-2 p-2 text-white">
           <li>Home</li>
           <li>Cart</li>
         </ul>
