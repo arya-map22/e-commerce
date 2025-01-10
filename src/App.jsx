@@ -1,15 +1,13 @@
 import { Provider } from "react-redux";
+import { RouterProvider } from "react-router";
 
 import store from "./store/main";
-
-import MainNavigation from "./components/MainNavigation";
-import HomePage from "./routes/Home";
+import router from "./routes/main";
 
 function App() {
   return (
     <Provider store={store}>
-      <MainNavigation />
-      <HomePage />
+      <RouterProvider router={router} />
     </Provider>
   );
 }

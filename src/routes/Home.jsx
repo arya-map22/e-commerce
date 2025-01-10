@@ -1,21 +1,30 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useRouteLoaderData } from "react-router";
 
 import { productsSelector } from "../store/selectors";
-import { fetchProducts } from "../store/products";
+import { productsActions } from "../store/products";
 
 import Product from "../components/Product";
 
+export async function loader() {
+  const response = await fetch(
+    "https://react-e-commerce-4eab9-default-rtdb.asia-southeast1.firebasedatabase.app/products.json",
+  );
+  return response;
+}
+
 export default function HomePage() {
+  const productsData = useRouteLoaderData("root");
   const { products } = useSelector(productsSelector);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
+    dispatch(productsActions.setProducts(productsData));
+  }, [dispatch, productsData]);
 
   return (
-    <main className="text-center">
+    <>
       <h1>React E-Commerce</h1>
       <section className="m-2 flex flex-wrap justify-center gap-4 p-2">
         {products.map((product) => (
@@ -28,6 +37,6 @@ export default function HomePage() {
           />
         ))}
       </section>
-    </main>
+    </>
   );
 }
