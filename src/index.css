@@ -7,15 +7,12 @@
     @apply bg-light-beige;
   }
   h1 {
-    @apply text-2xl;
-    @apply font-bold
+    @apply text-2xl font-bold
   }
   h2 {
-    @apply text-xl;
-    @apply font-semibold;
+    @apply text-xl font-semibold;
   }
   h3 {
-    @apply text-lg;
-    @apply font-semibold;
+    @apply text-lg font-semibold;
   }
 }
