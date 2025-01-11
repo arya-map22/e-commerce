@@ -1,13 +1,8 @@
 import { useRouteLoaderData } from "react-router";
 
 export async function loader({ params }) {
-  const response = await fetch(
-    "https://react-e-commerce-4eab9-default-rtdb.asia-southeast1.firebasedatabase.app/products.json",
-  );
-
-  const availableProducts = await response.json();
-  const productId = params.productId;
-  const product = availableProducts.find((prod) => prod.id === productId);
+  const products = JSON.parse(localStorage.getItem("products"));
+  const product = products.find((prod) => prod.id === params.productId);
 
   return product;
 }

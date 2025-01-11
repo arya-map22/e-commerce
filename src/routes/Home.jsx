@@ -7,11 +7,17 @@ import { productsActions, selectAvailableProducts } from "../store/products";
 import Product from "../components/Product";
 
 export async function loader() {
-  const response = await fetch(
-    "https://react-e-commerce-4eab9-default-rtdb.asia-southeast1.firebasedatabase.app/products.json",
-  );
-  const responseData = await response.json();
-  return responseData;
+  let products = JSON.parse(localStorage.getItem("products"));
+  if (!products) {
+    console.log("FETCHING...");
+    const response = await fetch(
+      "https://react-e-commerce-4eab9-default-rtdb.asia-southeast1.firebasedatabase.app/products.json",
+    );
+    products = await response.json();
+    localStorage.setItem("products", JSON.stringify(products));
+  }
+
+  return products;
 }
 
 export default function HomePage() {
