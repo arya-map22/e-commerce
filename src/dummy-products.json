@@ -1,0 +1,72 @@
+[
+  {
+    "id": "p1",
+    "title": "Dummy Product 1",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor eros nec lacus facilisis accumsan sed ac leo. Suspendisse rutrum, augue ut sodales sodales, turpis tellus laoreet urna, a volutpat mauris risus sit amet dolor. Etiam fermentum nunc id nunc varius, at fringilla metus venenatis. Proin pretium eu purus eget efficitur. Nulla sed lacus ac lacus lacinia imperdiet at eget ipsum. Sed interdum lorem nulla, sed cursus massa semper ac. Nam turpis nulla, fringilla et venenatis id, mattis at enim. Vivamus enim enim, mollis eu lacinia ut, sagittis sit amet ipsum. Praesent sed neque laoreet mauris euismod suscipit.",
+    "price": "99.99"
+  },
+  {
+    "id": "p2",
+    "title": "Dummy Product 2",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor eros nec lacus facilisis accumsan sed ac leo. Suspendisse rutrum, augue ut sodales sodales, turpis tellus laoreet urna, a volutpat mauris risus sit amet dolor. Etiam fermentum nunc id nunc varius, at fringilla metus venenatis. Proin pretium eu purus eget efficitur. Nulla sed lacus ac lacus lacinia imperdiet at eget ipsum. Sed interdum lorem nulla, sed cursus massa semper ac. Nam turpis nulla, fringilla et venenatis id, mattis at enim. Vivamus enim enim, mollis eu lacinia ut, sagittis sit amet ipsum. Praesent sed neque laoreet mauris euismod suscipit.",
+    "price": "99.99"
+  },
+  {
+    "id": "p3",
+    "title": "Dummy Product 3",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor eros nec lacus facilisis accumsan sed ac leo. Suspendisse rutrum, augue ut sodales sodales, turpis tellus laoreet urna, a volutpat mauris risus sit amet dolor. Etiam fermentum nunc id nunc varius, at fringilla metus venenatis. Proin pretium eu purus eget efficitur. Nulla sed lacus ac lacus lacinia imperdiet at eget ipsum. Sed interdum lorem nulla, sed cursus massa semper ac. Nam turpis nulla, fringilla et venenatis id, mattis at enim. Vivamus enim enim, mollis eu lacinia ut, sagittis sit amet ipsum. Praesent sed neque laoreet mauris euismod suscipit.",
+    "price": "99.99"
+  },
+  {
+    "id": "p4",
+    "title": "Dummy Product 4",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor eros nec lacus facilisis accumsan sed ac leo. Suspendisse rutrum, augue ut sodales sodales, turpis tellus laoreet urna, a volutpat mauris risus sit amet dolor. Etiam fermentum nunc id nunc varius, at fringilla metus venenatis. Proin pretium eu purus eget efficitur. Nulla sed lacus ac lacus lacinia imperdiet at eget ipsum. Sed interdum lorem nulla, sed cursus massa semper ac. Nam turpis nulla, fringilla et venenatis id, mattis at enim. Vivamus enim enim, mollis eu lacinia ut, sagittis sit amet ipsum. Praesent sed neque laoreet mauris euismod suscipit.",
+    "price": "99.99"
+  },
+  {
+    "id": "p5",
+    "title": "Dummy Product 5",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor eros nec lacus facilisis accumsan sed ac leo. Suspendisse rutrum, augue ut sodales sodales, turpis tellus laoreet urna, a volutpat mauris risus sit amet dolor. Etiam fermentum nunc id nunc varius, at fringilla metus venenatis. Proin pretium eu purus eget efficitur. Nulla sed lacus ac lacus lacinia imperdiet at eget ipsum. Sed interdum lorem nulla, sed cursus massa semper ac. Nam turpis nulla, fringilla et venenatis id, mattis at enim. Vivamus enim enim, mollis eu lacinia ut, sagittis sit amet ipsum. Praesent sed neque laoreet mauris euismod suscipit.",
+    "price": "99.99"
+  },
+  {
+    "id": "p6",
+    "title": "Dummy Product 6",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor eros nec lacus facilisis accumsan sed ac leo. Suspendisse rutrum, augue ut sodales sodales, turpis tellus laoreet urna, a volutpat mauris risus sit amet dolor. Etiam fermentum nunc id nunc varius, at fringilla metus venenatis. Proin pretium eu purus eget efficitur. Nulla sed lacus ac lacus lacinia imperdiet at eget ipsum. Sed interdum lorem nulla, sed cursus massa semper ac. Nam turpis nulla, fringilla et venenatis id, mattis at enim. Vivamus enim enim, mollis eu lacinia ut, sagittis sit amet ipsum. Praesent sed neque laoreet mauris euismod suscipit.",
+    "price": "99.99"
+  },
+  {
+    "id": "p7",
+    "title": "Dummy Product 7",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor eros nec lacus facilisis accumsan sed ac leo. Suspendisse rutrum, augue ut sodales sodales, turpis tellus laoreet urna, a volutpat mauris risus sit amet dolor. Etiam fermentum nunc id nunc varius, at fringilla metus venenatis. Proin pretium eu purus eget efficitur. Nulla sed lacus ac lacus lacinia imperdiet at eget ipsum. Sed interdum lorem nulla, sed cursus massa semper ac. Nam turpis nulla, fringilla et venenatis id, mattis at enim. Vivamus enim enim, mollis eu lacinia ut, sagittis sit amet ipsum. Praesent sed neque laoreet mauris euismod suscipit.",
+    "price": "99.99"
+  },
+  {
+    "id": "p8",
+    "title": "Dummy Product 8",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor eros nec lacus facilisis accumsan sed ac leo. Suspendisse rutrum, augue ut sodales sodales, turpis tellus laoreet urna, a volutpat mauris risus sit amet dolor. Etiam fermentum nunc id nunc varius, at fringilla metus venenatis. Proin pretium eu purus eget efficitur. Nulla sed lacus ac lacus lacinia imperdiet at eget ipsum. Sed interdum lorem nulla, sed cursus massa semper ac. Nam turpis nulla, fringilla et venenatis id, mattis at enim. Vivamus enim enim, mollis eu lacinia ut, sagittis sit amet ipsum. Praesent sed neque laoreet mauris euismod suscipit.",
+    "price": "99.99"
+  },
+  {
+    "id": "p9",
+    "title": "Dummy Product 9",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor eros nec lacus facilisis accumsan sed ac leo. Suspendisse rutrum, augue ut sodales sodales, turpis tellus laoreet urna, a volutpat mauris risus sit amet dolor. Etiam fermentum nunc id nunc varius, at fringilla metus venenatis. Proin pretium eu purus eget efficitur. Nulla sed lacus ac lacus lacinia imperdiet at eget ipsum. Sed interdum lorem nulla, sed cursus massa semper ac. Nam turpis nulla, fringilla et venenatis id, mattis at enim. Vivamus enim enim, mollis eu lacinia ut, sagittis sit amet ipsum. Praesent sed neque laoreet mauris euismod suscipit.",
+    "price": "99.99"
+  },
+  {
+    "id": "p10",
+    "title": "Dummy Product 10",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor eros nec lacus facilisis accumsan sed ac leo. Suspendisse rutrum, augue ut sodales sodales, turpis tellus laoreet urna, a volutpat mauris risus sit amet dolor. Etiam fermentum nunc id nunc varius, at fringilla metus venenatis. Proin pretium eu purus eget efficitur. Nulla sed lacus ac lacus lacinia imperdiet at eget ipsum. Sed interdum lorem nulla, sed cursus massa semper ac. Nam turpis nulla, fringilla et venenatis id, mattis at enim. Vivamus enim enim, mollis eu lacinia ut, sagittis sit amet ipsum. Praesent sed neque laoreet mauris euismod suscipit.",
+    "price": "99.99"
+  }
+]
