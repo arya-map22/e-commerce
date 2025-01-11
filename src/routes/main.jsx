@@ -4,6 +4,7 @@ import PageLayout from "./PageLayout";
 import HomePage from "./Home";
 
 import { loader as productsLoader } from "./Home";
+import ProductPage from "./Product";
 
 const router = createBrowserRouter([
   {
@@ -11,7 +12,10 @@ const router = createBrowserRouter([
     path: "/",
     element: <PageLayout />,
     loader: productsLoader,
-    children: [{ index: true, element: <HomePage /> }],
+    children: [
+      { index: true, element: <HomePage /> },
+      { path: ":productId", element: <ProductPage /> },
+    ],
   },
 ]);
 

@@ -2,8 +2,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouteLoaderData } from "react-router";
 
-import { productsSelector } from "../store/selectors";
-import { productsActions } from "../store/products";
+import { productsActions, selectAvailableProducts } from "../store/products";
 
 import Product from "../components/Product";
 
@@ -16,7 +15,7 @@ export async function loader() {
 
 export default function HomePage() {
   const productsData = useRouteLoaderData("root");
-  const { products } = useSelector(productsSelector);
+  const products = useSelector(selectAvailableProducts);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,6 +29,7 @@ export default function HomePage() {
         {products.map((product) => (
           <Product
             key={product.id}
+            id={product.id}
             title={product.title}
             image={product.image}
             description={product.description}

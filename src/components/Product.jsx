@@ -1,8 +1,18 @@
+import { useNavigate } from "react-router";
 import { currencyFormatter } from "../utils/currency";
 
-export default function Product({ title, image, description, price }) {
+export default function Product({ id, title, image, description, price }) {
+  const navigate = useNavigate();
+
+  function handleProductClick() {
+    navigate(id);
+  }
+
   return (
-    <article className="flex h-80 w-80 flex-col flex-nowrap items-center gap-3 rounded-sm border-2 border-solid border-beige p-2 shadow-md shadow-blue/50 hover:shadow-lg hover:shadow-blue/70">
+    <article
+      onClick={handleProductClick}
+      className="flex h-80 w-80 flex-col flex-nowrap items-center gap-3 rounded-sm border-2 border-solid border-beige p-2 shadow-md shadow-blue/50 hover:shadow-lg hover:shadow-blue/70"
+    >
       <h2>{title}</h2>
       <div className="h-32 w-auto">
         <img src={image} alt={title} className="h-full w-full" />

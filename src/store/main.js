@@ -8,4 +8,8 @@ const store = configureStore({
   }
 })
 
+export function selectProducts(state) {
+  return state.products;
+}
+
 export default store;
