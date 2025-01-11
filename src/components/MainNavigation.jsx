@@ -2,7 +2,7 @@ import { NavLink } from "react-router";
 
 export default function MainNavigation() {
   return (
-    <header className="mb-4 flex w-full items-center bg-dark-blue">
+    <header className="sticky top-0 mb-4 flex w-full items-center bg-dark-blue">
       <nav className="w-1/2">
         <ul className="mx-4 flex gap-2 p-2 text-white">
           <li>
