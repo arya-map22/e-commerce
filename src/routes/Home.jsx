@@ -10,7 +10,8 @@ export async function loader() {
   const response = await fetch(
     "https://react-e-commerce-4eab9-default-rtdb.asia-southeast1.firebasedatabase.app/products.json",
   );
-  return response;
+  const responseData = await response.json();
+  return responseData;
 }
 
 export default function HomePage() {

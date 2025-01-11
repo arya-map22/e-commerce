@@ -1,13 +1,20 @@
-import { useParams } from "react-router";
-import { useSelector } from "react-redux";
+import { useRouteLoaderData } from "react-router";
 
-import { selectProductById } from "../store/products.js";
+export async function loader({ params }) {
+  const response = await fetch(
+    "https://react-e-commerce-4eab9-default-rtdb.asia-southeast1.firebasedatabase.app/products.json",
+  );
+
+  const availableProducts = await response.json();
+  const productId = params.productId;
+  const product = availableProducts.find((prod) => prod.id === productId);
+
+  return product;
+}
 
 export default function ProductPage() {
-  const params = useParams();
-  const product = useSelector((state) =>
-    selectProductById(state, { productId: params.productId }),
-  );
+  const product = useRouteLoaderData("product-detail");
+
   return (
     <section>
       <h2>{product.title}</h2>
