@@ -22,7 +22,7 @@ export default function HomePage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(productsActions.setProducts(productsData));
+    dispatch(productsActions.setProducts({ products: productsData }));
   }, [dispatch, productsData]);
 
   return (

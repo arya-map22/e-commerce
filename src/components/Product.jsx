@@ -1,8 +1,11 @@
 import { useNavigate } from "react-router";
-import { currencyFormatter } from "../utils/currency";
 
-export default function Product({ id, title, image, description, price }) {
+import { currencyFormatter } from "../utils/currency";
+import AddToCartButton from "./UI/AddToCartButton";
+
+export default function Product(productItem) {
   const navigate = useNavigate();
+  const { id, title, image, description, price } = productItem;
 
   function handleProductClick() {
     navigate(id);
@@ -20,9 +23,7 @@ export default function Product({ id, title, image, description, price }) {
       <p className="h-20 overflow-scroll p-2 text-justify">{description}</p>
       <div className="flex w-full items-center justify-between px-2">
         <h3 className="ml-2">{currencyFormatter.format(price)}</h3>
-        <button className="rounded-md border-2 border-solid border-blue p-1 text-sm hover:bg-blue hover:text-white active:bg-dark-blue">
-          Add to Cart
-        </button>
+        <AddToCartButton product={productItem} />
       </div>
     </article>
   );

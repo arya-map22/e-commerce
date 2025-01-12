@@ -1,6 +1,7 @@
 import { useRouteLoaderData } from "react-router";
 
 import { currencyFormatter } from "../utils/currency";
+import AddToCartButton from "../components/UI/AddToCartButton";
 
 export async function loader({ params }) {
   const products = JSON.parse(localStorage.getItem("products"));
@@ -24,9 +25,7 @@ export default function ProductPage() {
       </div>
       <div className="mb-4 flex w-full items-center justify-center gap-36">
         <h3>{currencyFormatter.format(product.price)}</h3>
-        <button className="rounded-md border-2 border-solid border-blue p-1 text-sm hover:bg-blue hover:text-white active:bg-dark-blue">
-          Add to Cart
-        </button>
+        <AddToCartButton product={product} />
       </div>
       <h3 className="pl-2">Description</h3>
       <p className="text-justify">
