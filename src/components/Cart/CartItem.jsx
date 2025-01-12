@@ -4,7 +4,7 @@ import { currencyFormatter } from "../../utils/currency";
 export default function CartItem({ item }) {
   const { id, image, price, quantity, title } = item;
   return (
-    <li>
+    <li className="p-2 hover:bg-gray-200 active:bg-gray-300">
       <Link
         to={id}
         className="border-b-solid flex w-full items-center border-b-2 border-b-blue/20 p-2 text-center text-black last:border-transparent"
