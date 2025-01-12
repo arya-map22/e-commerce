@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import { currencyFormatter } from "../utils/currency";
 import AddToCartButton from "./UI/AddToCartButton";
 
-export default function Product(productItem) {
+export default function Product({ productItem }) {
   const navigate = useNavigate();
   const { id, title, image, description, price } = productItem;
 

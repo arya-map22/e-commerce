@@ -1,6 +1,6 @@
 import { NavLink } from "react-router";
 
-import CartIcon from "./CartIcon";
+import Cart from "./Cart/Cart";
 
 export default function MainNavigation() {
   return (
@@ -20,7 +20,9 @@ export default function MainNavigation() {
       <nav className="w-1/2">
         <ul className="mx-4 flex items-center justify-end gap-2 p-2 text-white">
           <li>Log In</li>
-          <CartIcon />
+          <li>
+            <Cart />
+          </li>
         </ul>
       </nav>
     </header>

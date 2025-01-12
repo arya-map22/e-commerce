@@ -30,14 +30,7 @@ export default function HomePage() {
       <h1>React E-Commerce</h1>
       <section className="m-2 flex flex-wrap justify-center gap-4 p-2">
         {products.map((product) => (
-          <Product
-            key={product.id}
-            id={product.id}
-            title={product.title}
-            image={product.image}
-            description={product.description}
-            price={product.price}
-          />
+          <Product key={product.id} productItem={product} />
         ))}
       </section>
     </>
