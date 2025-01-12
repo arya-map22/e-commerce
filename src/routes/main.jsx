@@ -5,7 +5,6 @@ import HomePage from "./Home";
 import ProductPage from "./Product";
 
 import { loader as rootLoader } from "./PageLayout";
-import { loader as productLoader } from "./Product";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +18,6 @@ const router = createBrowserRouter([
         id: "product-detail",
         path: ":productId",
         element: <ProductPage />,
-        loader: productLoader,
       },
     ],
   },

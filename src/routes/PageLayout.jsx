@@ -7,15 +7,19 @@ import { cartActions } from "../store/cart";
 
 import MainNavigation from "../components/MainNavigation";
 
-export async function loader() {
+async function fetchProducts() {
   const response = await fetch(
     "https://react-e-commerce-4eab9-default-rtdb.asia-southeast1.firebasedatabase.app/products.json",
   );
   const products = await response.json();
   localStorage.setItem("products", JSON.stringify(products));
 
+  return products;
+}
+
+export async function loader() {
+  const products = await fetchProducts();
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  console.log(cart);
 
   return { products, cart };
 }

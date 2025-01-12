@@ -14,7 +14,7 @@ export default function Product({ productItem }) {
   return (
     <article
       onClick={handleProductClick}
-      className="flex h-80 w-80 flex-col flex-nowrap items-center gap-3 rounded-sm border-2 border-solid border-beige p-2 shadow-md shadow-blue/50 hover:shadow-lg hover:shadow-blue/70"
+      className="flex h-80 w-80 flex-col flex-nowrap items-center gap-3 rounded-sm border-2 border-solid border-beige p-2 shadow-md shadow-blue/50 hover:cursor-pointer hover:shadow-lg hover:shadow-blue/70"
     >
       <h2>{title}</h2>
       <div className="h-32 w-auto">
