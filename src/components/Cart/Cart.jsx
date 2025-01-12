@@ -23,6 +23,11 @@ export default function Cart() {
     setCartIsVisible(false);
   }, [location.pathname]);
 
+  // Save cart data to localStorage whenever user add/remove item to cart
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
   return (
     <div className="relative ml-3">
       <CartIcon onClick={handleToggleShowCart} itemsAmount={itemsAmount} />

@@ -4,7 +4,7 @@ import PageLayout from "./PageLayout";
 import HomePage from "./Home";
 import ProductPage from "./Product";
 
-import { loader as availableProductsLoader } from "./Home";
+import { loader as rootLoader } from "./PageLayout";
 import { loader as productLoader } from "./Product";
 
 const router = createBrowserRouter([
@@ -12,7 +12,7 @@ const router = createBrowserRouter([
     id: "root",
     path: "/",
     element: <PageLayout />,
-    loader: availableProductsLoader,
+    loader: rootLoader,
     children: [
       { index: true, element: <HomePage /> },
       {

@@ -21,6 +21,9 @@ const cartSlice = createSlice({
       }
     },
 
+    setCart(state, action) {
+      state.cart = action.payload.cart;
+    },
     // TODO
     // removeItem(state, action) {
 
