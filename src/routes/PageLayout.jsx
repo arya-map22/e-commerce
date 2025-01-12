@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Outlet, useLoaderData } from "react-router";
+import { Outlet, useLoaderData, useLocation } from "react-router";
 
 import { productsActions } from "../store/products";
 import { cartActions } from "../store/cart";
@@ -23,6 +23,7 @@ export async function loader() {
 export default function PageLayout() {
   const loaderData = useLoaderData();
   const dispatch = useDispatch();
+  const location = useLocation();
 
   // Set initial products data
   useEffect(() => {
@@ -33,6 +34,11 @@ export default function PageLayout() {
   useEffect(() => {
     dispatch(cartActions.setCart({ cart: loaderData.cart }));
   }, [dispatch, loaderData.cart]);
+
+  // Reset scroll position whenever page changes
+  useEffect(() => {
+    document.documentElement.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [location.pathname]);
 
   return (
     <>
