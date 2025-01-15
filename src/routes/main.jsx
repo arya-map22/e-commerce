@@ -4,14 +4,14 @@ import PageLayout from "./PageLayout";
 import HomePage from "./Home";
 import ProductPage from "./Product";
 
-import { loader as rootLoader } from "./PageLayout";
+// import { loader as rootLoader } from "./PageLayout";
 
 const router = createBrowserRouter([
   {
     id: "root",
     path: "/",
     element: <PageLayout />,
-    loader: rootLoader,
+    // loader: rootLoader,
     children: [
       { index: true, element: <HomePage /> },
       {

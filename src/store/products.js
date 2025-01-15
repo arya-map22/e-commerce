@@ -1,32 +1,42 @@
-import { createSlice, createSelector } from "@reduxjs/toolkit";
+import { createEntityAdapter, createSelector } from "@reduxjs/toolkit";
 
-import { selectProducts } from "./main";
+import apiSlice from "./apiSlice";
 
-const initialState = {
-  products: [],
-};
+const productsAdapter = createEntityAdapter();
 
-const productsSlice = createSlice({
-  name: "products",
-  initialState,
-  reducers: {
-    setProducts(state, action) {
-      state.products = action.payload;
-    },
-  },
+const initialState = productsAdapter.getInitialState();
+
+const apiSliceWithProducts = apiSlice.injectEndpoints({
+  endpoints: (build) => ({
+    getAvailableProducts: build.query({
+      query: () => "/products.json",
+
+      transformResponse: (response = []) =>
+        productsAdapter.setAll(initialState, response),
+
+      providesTags: (response = initialState) => [
+        "products",
+        Object.keys(response.entities).map((id) => ({ type: "products", id })),
+      ],
+    }),
+  }),
 });
 
-export const selectAvailableProducts = createSelector(
-  [selectProducts],
-  (productsState) => productsState.products,
+export const { useGetAvailableProductsQuery } = apiSliceWithProducts;
+
+const selectProductByIdFromQueryResult = createSelector(
+  [
+    (queryResult) => queryResult.data?.entities,
+    (queryResult, productId) => productId,
+  ],
+  (products, productId) => (products ? products[productId] : null),
 );
 
-export const selectProductById = createSelector(
-  [selectAvailableProducts, (state, { productId }) => productId],
-  (availableProducts, productId) =>
-    availableProducts.find((product) => product.id === productId),
-);
-
-export const productsActions = productsSlice.actions;
-
-export default productsSlice;
+export function useProductFromId(productId) {
+  return useGetAvailableProductsQuery(undefined, {
+    selectFromResult: (queryResult) => ({
+      ...queryResult,
+      data: selectProductByIdFromQueryResult(queryResult, productId),
+    }),
+  });
+}
