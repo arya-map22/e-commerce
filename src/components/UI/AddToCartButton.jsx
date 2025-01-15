@@ -7,7 +7,7 @@ export default function AddToCartButton({ product }) {
 
   function handleAddToCart(event) {
     event.stopPropagation();
-    dispatch(cartActions.addItem({ item: product }));
+    dispatch(cartActions.addItem(product));
   }
 
   return (

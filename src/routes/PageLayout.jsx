@@ -1,9 +1,10 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { Outlet, useLoaderData, useLocation } from "react-router";
+import { Outlet, useLocation } from "react-router";
 
 import { productsActions } from "../store/products";
 import { cartActions } from "../store/cart";
+
+import store from "../store/main";
 
 import MainNavigation from "../components/MainNavigation";
 
@@ -21,23 +22,15 @@ export async function loader() {
   const products = await fetchProducts();
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  return { products, cart };
+  // Initialize products and cart upon first page load
+  store.dispatch(productsActions.setProducts(products));
+  store.dispatch(cartActions.setCart(cart));
+
+  return;
 }
 
 export default function PageLayout() {
-  const loaderData = useLoaderData();
-  const dispatch = useDispatch();
   const location = useLocation();
-
-  // Set initial products data
-  useEffect(() => {
-    dispatch(productsActions.setProducts({ products: loaderData.products }));
-  }, [dispatch, loaderData.products]);
-
-  // Set initial cart data
-  useEffect(() => {
-    dispatch(cartActions.setCart({ cart: loaderData.cart }));
-  }, [dispatch, loaderData.cart]);
 
   // Reset scroll position whenever page changes
   useEffect(() => {

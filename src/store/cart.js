@@ -11,14 +11,14 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     setCart(state, action) {
-      state.cart = action.payload.cart;
+      state.cart = action.payload;
     },
 
     addItem(state, action) {
-      const { id } = action.payload.item;
-      const selectedItem = state.cart.find((item) => item.id === id);
+      const addedItem = action.payload;
+      const selectedItem = state.cart.find((item) => item.id === addedItem.id);
       if (!selectedItem) {
-        const newItem = { ...action.payload.item, quantity: 1 };
+        const newItem = { ...addedItem, quantity: 1 };
         state.cart.unshift(newItem);
       } else {
         selectedItem.quantity += 1;
