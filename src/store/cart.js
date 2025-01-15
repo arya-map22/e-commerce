@@ -14,10 +14,16 @@ const cartSlice = createSlice({
       state.cart = action.payload.cart;
     },
 
-    // TODO
-    // removeItem(state, action) {
-
-    // },
+    addItem(state, action) {
+      const { id } = action.payload.item;
+      const selectedItem = state.cart.find((item) => item.id === id);
+      if (!selectedItem) {
+        const newItem = { ...action.payload.item, quantity: 1 };
+        state.cart.unshift(newItem);
+      } else {
+        selectedItem.quantity += 1;
+      }
+    },
   },
 });
 
