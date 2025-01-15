@@ -13,14 +13,22 @@ async function fetchProducts() {
     "https://react-e-commerce-4eab9-default-rtdb.asia-southeast1.firebasedatabase.app/products.json",
   );
   const products = await response.json();
-  localStorage.setItem("products", JSON.stringify(products));
 
   return products;
 }
 
+async function fetchCart() {
+  const response = await fetch(
+    "https://react-e-commerce-4eab9-default-rtdb.asia-southeast1.firebasedatabase.app/cart.json",
+  );
+  const cart = await response.json();
+
+  return cart;
+}
+
 export async function loader() {
   const products = await fetchProducts();
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cart = (await fetchCart()) || [];
 
   // Initialize products and cart upon first page load
   store.dispatch(productsActions.setProducts(products));

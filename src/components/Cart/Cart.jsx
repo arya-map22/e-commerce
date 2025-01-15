@@ -25,7 +25,20 @@ export default function Cart() {
 
   // Save cart data to localStorage whenever user add/remove item to cart
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
+    async function saveCartToServer(cart) {
+      await fetch(
+        "https://react-e-commerce-4eab9-default-rtdb.asia-southeast1.firebasedatabase.app/cart.json",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(cart),
+        },
+      );
+    }
+
+    saveCartToServer(cart);
   }, [cart]);
 
   return (
