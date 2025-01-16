@@ -1,6 +1,6 @@
 import { createEntityAdapter, createSelector } from "@reduxjs/toolkit";
 
-import apiSlice from "./apiSlice";
+import apiSlice from "./api";
 
 const productsAdapter = createEntityAdapter();
 
@@ -29,7 +29,7 @@ const selectProductByIdFromQueryResult = createSelector(
     (queryResult) => queryResult.data?.entities,
     (queryResult, productId) => productId,
   ],
-  (products, productId) => (products ? products[productId] : null),
+  (products, productId) => (products ? products[productId] : {}),
 );
 
 export function useProductFromId(productId) {
@@ -46,7 +46,7 @@ const selectAvailableProductsFromQueryResult = createSelector(
   (products) =>
     products
       ? Object.entries(products).map(([id, prod]) => ({ id, ...prod }))
-      : null,
+      : [],
 );
 
 export function useAvailableProducts() {
