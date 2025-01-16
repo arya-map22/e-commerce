@@ -39,6 +39,10 @@ export default function ProductPage() {
         </p>
       </>
     );
+  } else if (isSuccess && !product) {
+    content = (
+      <p className="text-center">No product with id={params.productId} found</p>
+    );
   }
 
   return <section className="w-2/3 md:w-[500px]">{content}</section>;

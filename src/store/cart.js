@@ -14,12 +14,9 @@ const cartApiSlice = apiSlice.injectEndpoints({
       transformResponse: (response) =>
         cartAdapter.setAll(initialState, response || []),
 
-      providesTags: (response) => [
+      providesTags: (transformedResponse) => [
         "cart",
-        ...Object.keys(response.entities || []).map((id) => ({
-          type: "cart",
-          id,
-        })),
+        transformedResponse.ids.map((id) => ({ type: "cart", id })),
       ],
     }),
 
@@ -41,18 +38,17 @@ const selectUserCartFromQueryResult = createSelector(
   [(queryResult) => queryResult.data?.entities],
   (cartEntities) => {
     if (cartEntities) {
-      const userCart = Object.entries(cartEntities).map(([id, item]) => ({
-        id,
-        ...item,
-      }));
+      const userCart = Object.values(cartEntities);
+
       const itemsAmount = userCart.reduce(
         (itemsAmount, item) => itemsAmount + item.quantity,
         0,
       );
+
       return { userCart, itemsAmount };
     }
 
-    return { userCart: [], itemsAmount: 0 };
+    return null;
   },
 );
 
@@ -67,27 +63,30 @@ export function useUserCart() {
 
 export function useAddProductToCart(product) {
   const [updateCart, ...useMutation] = useUpdateCartMutation();
-  const {
-    data: { userCart },
-  } = useUserCart();
+  const { data, isSuccess } = useUserCart();
 
-  const oldItemIndex = userCart.findIndex((item) => item.id === product.id);
+  let addItemToCart = async () => {};
 
-  let newItem;
-  if (oldItemIndex !== -1) {
-    const oldItem = userCart[oldItemIndex];
-    newItem = {
-      ...oldItem,
-      quantity: oldItem.quantity + 1,
+  if (isSuccess && data) {
+    const { userCart } = data;
+    const oldItemIndex = userCart.findIndex((item) => item.id === product.id);
+
+    let newItem;
+    if (oldItemIndex !== -1) {
+      const oldItem = userCart[oldItemIndex];
+      newItem = {
+        ...oldItem,
+        quantity: oldItem.quantity + 1,
+      };
+    } else {
+      newItem = { ...product, quantity: 1 };
+    }
+
+    addItemToCart = async () => {
+      const newUserCart = [newItem, ...userCart];
+      await updateCart({ id: newItem.id, body: newUserCart }).unwrap();
     };
-  } else {
-    newItem = { ...product, quantity: 1 };
-  }
 
-  async function addItemToCart() {
-    const newUserCart = [newItem, ...userCart];
-    await updateCart({ id: newItem.id, body: newUserCart }).unwrap();
+    return [addItemToCart, ...useMutation];
   }
-
-  return [addItemToCart, ...useMutation];
 }
