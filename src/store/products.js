@@ -11,12 +11,12 @@ const productsApiSlice = apiSlice.injectEndpoints({
     getAvailableProducts: build.query({
       query: () => "/products.json",
 
-      transformResponse: (response = []) =>
-        productsAdapter.setAll(initialState, response),
+      transformResponse: (response) =>
+        productsAdapter.setAll(initialState, response || []),
 
-      providesTags: (response = initialState) => [
+      providesTags: (transformedResponse) => [
         "products",
-        Object.keys(response.entities).map((id) => ({ type: "products", id })),
+        transformedResponse.ids.map((id) => ({ type: "products", id })),
       ],
     }),
   }),
@@ -29,7 +29,8 @@ const selectProductByIdFromQueryResult = createSelector(
     (queryResult) => queryResult.data?.entities,
     (queryResult, productId) => productId,
   ],
-  (products, productId) => (products ? products[productId] : {}),
+  (productEntities, productId) =>
+    productEntities ? productEntities[productId] : null,
 );
 
 export function useProductFromId(productId) {
@@ -43,10 +44,7 @@ export function useProductFromId(productId) {
 
 const selectAvailableProductsFromQueryResult = createSelector(
   [(queryResult) => queryResult.data?.entities],
-  (products) =>
-    products
-      ? Object.entries(products).map(([id, prod]) => ({ id, ...prod }))
-      : [],
+  (productEntities) => (productEntities ? Object.values(productEntities) : []),
 );
 
 export function useAvailableProducts() {

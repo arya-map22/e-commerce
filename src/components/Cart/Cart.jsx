@@ -10,9 +10,7 @@ export default function Cart() {
   const [cartIsVisible, setCartIsVisible] = useState(false);
   const location = useLocation();
 
-  const {
-    data: { userCart, itemsAmount },
-  } = useUserCart();
+  const { data, isFetching, isSuccess } = useUserCart();
 
   function handleToggleShowCart() {
     setCartIsVisible((prevState) => !prevState);
@@ -22,6 +20,16 @@ export default function Cart() {
   useEffect(() => {
     setCartIsVisible(false);
   }, [location.pathname]);
+
+  let userCart;
+  let itemsAmount;
+  if (isFetching) {
+    userCart = [];
+    itemsAmount = 0;
+  } else if (isSuccess) {
+    userCart = data.userCart;
+    itemsAmount = data.itemsAmount;
+  }
 
   return (
     <div className="relative ml-3">
