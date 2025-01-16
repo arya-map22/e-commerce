@@ -2,18 +2,14 @@
 
 // import { selectAvailableProducts } from "../store/products";
 
-import { useGetAvailableProductsQuery } from "../store/products";
+import { useAvailableProducts } from "../store/products";
 
 import Product from "../components/Product";
 import Loading from "../components/UI/Loading";
 
 export default function HomePage() {
   console.log("HOME RENDERING");
-  const {
-    data: products,
-    isFetching,
-    isSuccess,
-  } = useGetAvailableProductsQuery();
+  const { data: products, isFetching, isSuccess } = useAvailableProducts();
 
   let content;
   if (isFetching) {

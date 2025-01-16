@@ -6,7 +6,7 @@ const productsAdapter = createEntityAdapter();
 
 const initialState = productsAdapter.getInitialState();
 
-const apiSliceWithProducts = apiSlice.injectEndpoints({
+const productsApiSlice = apiSlice.injectEndpoints({
   endpoints: (build) => ({
     getAvailableProducts: build.query({
       query: () => "/products.json",
@@ -22,7 +22,7 @@ const apiSliceWithProducts = apiSlice.injectEndpoints({
   }),
 });
 
-export const { useGetAvailableProductsQuery } = apiSliceWithProducts;
+const { useGetAvailableProductsQuery } = productsApiSlice;
 
 const selectProductByIdFromQueryResult = createSelector(
   [
@@ -37,6 +37,23 @@ export function useProductFromId(productId) {
     selectFromResult: (queryResult) => ({
       ...queryResult,
       data: selectProductByIdFromQueryResult(queryResult, productId),
+    }),
+  });
+}
+
+const selectAvailableProductsFromQueryResult = createSelector(
+  [(queryResult) => queryResult.data?.entities],
+  (products) =>
+    products
+      ? Object.entries(products).map(([id, prod]) => ({ id, ...prod }))
+      : null,
+);
+
+export function useAvailableProducts() {
+  return useGetAvailableProductsQuery(undefined, {
+    selectFromResult: (queryResult) => ({
+      ...queryResult,
+      data: selectAvailableProductsFromQueryResult(queryResult),
     }),
   });
 }
